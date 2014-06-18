@@ -97,3 +97,11 @@ body{
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+  .post-box{
+background-color: black;}
+}
