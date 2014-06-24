@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-	before_action :authenticate_user!, :only => [:new, :create, :edit, :update]
+	before_action :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy	]
 
 	def index
 		@places = Place.all 		#creates variable of all Places
@@ -11,9 +11,12 @@ class PlacesController < ApplicationController
 	end
 
 	def create
-		current_user.places.create(place_params)
-		# Place.create(place_params) old code before associating users with places (above)
-		redirect_to root_path
+		@place = current_user.places.create(place_params) 
+		if @place.valid?										#if checks if validation passes, send to root
+			redirect_to root_path
+		else
+			render :new, :status => :unprocessable_entity		#send back to form 
+		end
 	end
 
 	def show
@@ -31,7 +34,7 @@ class PlacesController < ApplicationController
 	def update
 		@place = Place.find(params[:id])		#find specified post
 
-		if @place.user != current_user
+		if @place.user != current_user			#if user isn’t the current_user
     		return render :text => 'Not Allowed', :status => :forbidden
   		end
 

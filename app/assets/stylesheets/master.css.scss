@@ -1,16 +1,43 @@
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway);
 
 .post-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
   box-shadow: 1px 1px 2px 0 #d0d0d0;
-  background: #fff;
+  background: #fff; 
   border: 1px solid #ccc;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   margin-top:10px;
   margin-bottom:15px;
-  padding:20px;
+  padding:15px;
+}
+
+.post-box h1 a{
+
+}
+
+.post-box h1{
+  font-size: 2.5em;
+  font-family: Montserrat;
+}
+
+.post-box p{
+  font-size: 1.25em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.post-box i{
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+}
+
+.pull-right{
+  top:5px;
+  font-size: 1.25em;
+  font-family: 'Raleway', sans-serif;
 }
 
 .navbar.navbar-inverse {
@@ -98,10 +125,18 @@ body{
   *:first-child + html .digg_pagination {
     overflow: hidden; }
 
-/* Smartphones (portrait and landscape) ----------- */
+  .field_with_errors {
+  color: #ff3333;
+  background-color: #FFEEEE;
+  border-radius: 3px;
+  padding:8px;
+}
+
+/* Smartphones (portrait and landscape)
 @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
   .post-box{
 background-color: black;}
 }
+*/

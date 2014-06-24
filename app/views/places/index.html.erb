@@ -2,12 +2,14 @@
 <br>
 <% @places.each do |place| %>
 	<div class="post-box col-xs-10 col-xs-offset-1">
-		<h1><%= link_to place.name, place_path(place) %></h1><br />	<!--replaces place.name -->
+		<div class="pull-right">
+		<small><%= place.user.email %></small>
+		</div>
+		<h1><%= link_to place.name, place_path(place) %></h1>	<!--replaces place.name -->
 		<i><%= place.address %></i><br><br>
-		<p><%= place.description %></p><br>
+		<p><%= place.description %></p>
 
 		<% if place.user.present? %>
-		<small><%= place.user.email %></small>
 		<% end %>
 	</div>
 <% end %>
