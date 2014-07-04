@@ -132,6 +132,10 @@ body{
   padding:8px;
 }
 
+#map-canvas{
+  height: 300px;      /*needs to be put in because of bootstrap*/
+}
+
 /* Smartphones (portrait and landscape)
 @media only screen 
 and (min-device-width : 320px) 
