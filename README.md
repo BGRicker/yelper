@@ -11,3 +11,6 @@ Q&A
 - Autopopulating list when typing in names of places, like Yelp/Wikipedia
 - git version control for if I want to mess around with layouts consequence free, be able to revert to an older version (maybe git checkout)
 - Count number of reviews per place, sort places as "top places' by number of reviews"
+- DNS of VARIABLE.nomster.com, like www.nomster.heroku.com. Auto populate address prefix with variable
+- show all places on a map, select different descriptions to cut down number of places shown
+- 
