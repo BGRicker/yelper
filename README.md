@@ -2,7 +2,8 @@
 
 Q&A 
 
-- declare seperate variables for street, city, state and concatenating into one value to be geocoded, or pulling that information out of address information to sort by city, state, etc
+- declare seperate variables for street, city, state and concatenating into one value to be geocoded, or pulling/parsing that information out of address information to sort by city, state, etc
+- Seperate pages for places, if duplicate place names (eg. two 'Regina Pizzeria's, reviews/comments on same page)
 
 - pulling stats from twitter, social networks (#mentions per time frame, hashtag monitoring)
 - reactive css to imported data. Charts, graphs, etc. showing changes based on database
