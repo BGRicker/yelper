@@ -36,7 +36,7 @@
 <div class="clear">
 <%= simple_form_for @comment, :url => place_comments_path(@place) do |f| %>
 	<%= f.input :message %>
-	<%= f.input :rating %>
+	<%= f.input :rating, :as => :select, :collection => Comment::RATINGS %>		<!-- dropdown menu through ratings method-->
 	<%= f.submit "Add a comment", :class=> 'btn btn-primary' %>
 <% end %>
 </div>
@@ -45,10 +45,22 @@
 
 <% @place.comments.each do |comment| %>
   <div>
-    <blockquote>
-      <b><%= comment.rating %></b> -
-        <%= comment.message %>
+    <blockquote> 
+			<% if comment.humanized_rating.present? %>		<!-- if formatted rating -->
+      <b><%= comment.humanized_rating %></b> -			<!-- show formatted rating -->
+      <% end %>
+      <%= comment.message %>
       <small><%= comment.user.email %></small>
     </blockquote>
   </div>
 <% end %>
+
+
+
+
+
+
+
+
+
+
