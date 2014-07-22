@@ -7,5 +7,14 @@ class Place < ActiveRecord::Base
 	validates :name, :description, :presence => true, :uniqueness => true
 	validates :name, length: { in: 5..25 }
 	validates :description, length: { in: 20..200 }
-end
 
+
+	def average_rating
+		Comment.where(:place_id => self.id).average(:rating).to_f
+	end
+
+	def neg_rating
+		(average_rating-5).abs
+	end
+
+end

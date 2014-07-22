@@ -6,12 +6,13 @@ class Comment < ActiveRecord::Base
 
 
 	 RATINGS = {
-	 	'one star' 		=> '1_star',			#user sees value on the left, right stored in database
-	 	'two stars'		=> '2_stars',
-	 	'three stars'	=> '3_stars',
-	 	'four stars'	=> '4_stars',
-	 	'five stars'	=> '5_stars'
+	 	'one star' 		=> 1,			#user sees value on the left, right stored in database
+	 	'two stars'		=> 2,
+	 	'three stars'	=> 3,
+	 	'four stars'	=> 4,
+	 	'five stars'	=> 5
 	 }
+
 
 	 def humanized_rating						#inverts table for RATINGS
 	 	RATINGS.invert[self.rating]				#calling .rating on self

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	before_action :authenticate_user!
+	#before_action :authenticate_user!
 
 	def create		#comments form working, set up create action 
 		@place = Place.find(params[:place_id])
