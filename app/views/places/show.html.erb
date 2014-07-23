@@ -40,7 +40,7 @@
 	width:100%;
 	top: 50px;
 	left: 0px;
-	z-index:0;
+	z-index:-1;
 	border: 2px solid black;
 }
 
@@ -84,22 +84,25 @@
 </button>
 </div>
 
-					<h1>Comments</h1>
-					<div class="commentbox">
-						<% @place.comments.each do |comment| %>
-						<div>
-							    <blockquote> 
-							   	  <% if comment.humanized_rating.present? %>		<!-- if formatted rating -->
-							      <b><%= comment.humanized_rating %></b> -			<!-- show formatted rating -->
-							      <% end %>
-							      <%= comment.message %>
-							      <small><%= comment.user.email %></small>
-							    </blockquote>
-							  </div>
-						</div>
-					</div>
-					<% end %>
+	<h1>Comments</h1>
+	<div class="commentbox">
+		<% @place.comments.each do |comment| %>
+		<div>
+			    <blockquote> 
+			   	  <% if comment.humanized_rating.present? %>		<!-- if formatted rating -->
+			      <b><%= comment.humanized_rating %></b> -			<!-- show formatted rating -->
+			      <% end %>
+			      <%= comment.message %>
+			      <small><%= comment.user.email %></small>
+			    </blockquote>
+			  </div>
+		</div>
+	</div>
+	<% end %>
 </div>
+</div>
+
+
 <% if @place.latitude.present? && @place.longitude.present? %>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script>
@@ -125,7 +128,8 @@
 <% end %>
 	<br>
 </div>
-
+</div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -147,5 +151,6 @@
       <% end %>
       </div>
     </div>
+  </div>
   </div>
 </div>
