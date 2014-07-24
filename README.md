@@ -17,6 +17,5 @@ Q&A
 - creating alternate versions of a project on git (branches?)
 
 
-
 Previously talked about
 - Count number of reviews per place, sort places as "top places' by number of reviews"

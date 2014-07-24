@@ -14,9 +14,14 @@ class Comment < ActiveRecord::Base
 	 }
 
 
-	 def humanized_rating						#inverts table for RATINGS
-	 	RATINGS.invert[self.rating]				#calling .rating on self
-	 end									#more verbose to put self, pulls in rating
+	def humanized_rating						#inverts table for RATINGS
+		RATINGS.invert[self.rating]				#calling .rating on self
+	end											#more verbose to put self, pulls in rating
+
+	def single_rating
+		RATINGS.to_i
+	end
+
 
 #	 def mark_associated_item
 #	 	similar_places = Place.where(:name => self.place.name)
