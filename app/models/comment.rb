@@ -13,14 +13,11 @@ class Comment < ActiveRecord::Base
 	 	'five stars'	=> 5
 	 }
 
-
 	def humanized_rating						#inverts table for RATINGS
 		RATINGS.invert[self.rating]				#calling .rating on self
 	end											#more verbose to put self, pulls in rating
+			
 
-	def single_rating
-		RATINGS.to_i
-	end
 
 
 #	 def mark_associated_item

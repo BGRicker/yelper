@@ -96,12 +96,13 @@
 	<div class = "cont">
 		<% @place.comments.each do |comment| %>
 			    <blockquote> 
-			   	  <% if comment.humanized_rating.present? %>
-			     	<b><%= comment.humanized_rating %></b>
-			      <% end %> 
+			    	<% if comment.humanized_rating.present? %>
+			    	<b><%= comment.humanized_rating %></b>
+			     	<% end %>
 						<div class ="message"><p><%= comment.message %></p></div>
 			      <div class ="email"><p><%= comment.user.email %></p></div>
 			    </blockquote>
+
 	<% end %>
 		</div>
 	</div>
