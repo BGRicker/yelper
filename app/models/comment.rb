@@ -17,7 +17,9 @@ class Comment < ActiveRecord::Base
 		RATINGS.invert[self.rating]				#calling .rating on self
 	end											#more verbose to put self, pulls in rating
 			
-
+	def true_rating
+		RATINGS[self.rating]
+	end
 
 
 #	 def mark_associated_item

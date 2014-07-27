@@ -25,8 +25,8 @@
 .rating{
 	font-size: 20px;
 	position: absolute;
-	top: 5%;
-	left: 5%;
+	top: 4%;
+	left: 3%;
 	font-weight: bold;
 		font-size: 30px;
 	color: red;
@@ -99,8 +99,8 @@
 			    	<% if comment.humanized_rating.present? %>
 			    	<b><%= comment.humanized_rating %></b>
 			     	<% end %>
-						<div class ="message"><p><%= comment.message %></p></div>
-			      <div class ="email"><p><%= comment.user.email %></p></div>
+						<p><%= comment.message %></p>
+						<p><%= comment.user.email %></p>
 			    </blockquote>
 
 	<% end %>
