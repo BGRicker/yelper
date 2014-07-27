@@ -14,7 +14,7 @@ class Place < ActiveRecord::Base
 	end
 
 	def neg_rating
-		(average_rating-5).abs
+		(average_rating-5)
 	end
 
 end

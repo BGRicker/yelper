@@ -1,3 +1,4 @@
+
 <br>
 <br>
 <% @places.each do |place| %>
@@ -7,6 +8,7 @@
 		<% end %>
 		</div>
 		<h1><%= link_to place.name, place_path(place) %></h1>	<!--replaces place.name -->
+
 		<i><%= place.address %></i><br><br>
 		<p><%= place.description %></p>
 
