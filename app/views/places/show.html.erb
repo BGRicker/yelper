@@ -16,6 +16,19 @@
   opacity: .9;
 }
 
+.indcomm{
+	border: 1px solid gray;
+	padding: 2, 5, 0, 5px;
+}
+
+.indcomm b{
+	font-size: 12px;
+}
+
+.indcomm p{
+	font-size: 15px;
+}
+
 .cont {
 	height: 50%;
 	width: 100%;
@@ -24,12 +37,11 @@
 
 .rating{
 	font-size: 20px;
-	position: absolute;
+	position: static;
 	top: 14%;
 	text-align: center;
-	width: 95%;
 	font-weight: bold;
-		font-size: 30px;
+	font-size: 30px;
 	color: red;
 }
 
@@ -43,9 +55,15 @@
 
 #editdel{
 	position: absolute;
-	bottom: 5%;
+	bottom: 2%;
 	right: 5%;
 	text-align: right;
+}
+
+.commbutton{
+	position: absolute;
+	bottom: 2%;
+	left: 5%;
 }
 
 #map-canvas{
@@ -57,20 +75,12 @@
 	z-index:-1;
 }
 
-.commbutton{
-	position: absolute;
-	bottom: 5%;
-	left: 5%;
-}
-
 </style>
 
 
 <div class="placeinfo">
 <center><h1><%= @place.name %> </h1>
-<i><small><%= @place.address %></small></i><br><br></center>
-<br>
-<p><%= @place.description %></p><br>
+<i><small><%= @place.address %></small></i><br></center>
 <div class = "rating">
 <span><% @place.average_rating.to_i.times do %>
 *
@@ -79,7 +89,10 @@
 *
 <% end %>
 </span>
+<br>
 </div>
+<p><%= @place.description %></p><br>
+
 <% else %>
 
 	<div id="editdel">	
@@ -97,20 +110,21 @@
 	<h4>Comments</h4>
 	<div class = "cont">
 		<% @place.comments.each do |comment| %>
-			    <blockquote> 
-			    	<% if comment.humanized_rating.present? %>
+		<div class ="indcomm">
+			    	<% if comment.message.present? %>							<!-- only shows review if a rating is present -->
+			    	<% if comment.humanized_rating.present? %>		<!-- makes it so you can just give star rating, no review -->
 			    	<b><%= comment.humanized_rating %></b>
 			     	<% end %>
 						<p><%= comment.message %></p>
 						<p><%= comment.user.email %></p>
-			    </blockquote>
-
+						<% end %>
+					</div>
 	<% end %>
+
 		</div>
 	</div>
 </div>
 </div>
-
 
 
 <% if @place.latitude.present? && @place.longitude.present? %>
@@ -118,7 +132,7 @@
 	<script>
 		function initialize() {
 		  var myLatlng = new google.maps.LatLng(<%= @place.latitude %>,<%= @place.longitude %>);
-		  var myCent = new google.maps.LatLng(<%= @place.latitude - 0.003%>, <%= @place.longitude - 0.0085 %>);
+		  var myCent = new google.maps.LatLng(<%= @place.latitude - 0.00%>, <%= @place.longitude - 0.011 %>);
 		  var mapOptions = {
 		    zoom: 15,
 		    center: myCent,
