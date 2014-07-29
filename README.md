@@ -17,6 +17,10 @@ Q&A
 - is @place = Place.find(params[:place_id]) standard for locating the id of the model?
 - creating alternate versions of a project on git (branches?)
 - allowing user to rate without a review, making review not show up but rating factor in
+- @place_owner = @place.user 	#(in mailer) why not just leave @place.user as in instead of change to place_owner?
+	#
+
+- in Lesson 42 you said "app/views/notification_mailer/comment_added.text.erb." but I think you meant comment_added.html.erb
 
 
 Previously talked about
