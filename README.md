@@ -2,14 +2,10 @@
 
 Q&A 
 
-- reactive css to imported data. Charts, graphs, etc. showing changes based on database
-(stats on NBA site, upload new scores and the graphs/charts change)
-- Star rating like yelp based on user reviews. A page of cumulative reviews for one place.
-
 - DNS of VARIABLE.nomster.com, like www.nomster.heroku.com. Auto populate address prefix with variable
 - show all places on a map, select different descriptions to cut down number of places shown
 
-
+- 
 
 - star rating for each review
 - can't create new places on heroku
@@ -17,16 +13,14 @@ Q&A
 - is @place = Place.find(params[:place_id]) standard for locating the id of the model?
 - creating alternate versions of a project on git (branches?)
 - allowing user to rate without a review, making review not show up but rating factor in
-- @place_owner = @place.user 	#(in mailer) why not just leave @place.user as in instead of change to place_owner?
-	#
 
-- in Lesson 42 you said "app/views/notification_mailer/comment_added.text.erb." but I think you meant comment_added.html.erb
+- in Lesson 42 you wrote "app/views/notification_mailer/comment_added.text.erb." but I think you meant comment_added.html.erb
 
 
 Previously talked about
 - Count number of reviews per place, sort places as "top places' by number of reviews"
 
-
+- DB queries, 
 
 
 Can't create new places in heroku:
