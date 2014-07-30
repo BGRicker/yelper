@@ -1,6 +1,25 @@
+<style type="text/css">
+.rating{
+	position: relative;
+	font-size: 20px;
+	top: 14%;
+	font-weight: bold;
+	font-size: 30px;
+	color: red;
+}
+
+.cont p {
+	font-size: 12px;
+}
+
+.rating span span{
+	color:gray;
+}
+</style>
+
 
 <br>
-<br>
+
 <% @places.each do |place| %>
 	<div class="post-box col-xs-10 col-xs-offset-1">
 		<div class="pull-right">
@@ -8,7 +27,15 @@
 		<% end %>
 		</div>
 		<h1><%= link_to place.name, place_path(place) %></h1>	<!--replaces place.name -->
-
+			<div class = "rating">
+			<span><% place.average_rating.to_i.times do %>
+			*
+			<% end %><span>
+			<% place.neg_rating.to_i.times do %>
+			*
+			<% end %>
+			</span>
+			</div>
 		<i><%= place.address %></i><br><br>
 		<p><%= place.description %></p>
 

@@ -6,4 +6,11 @@ class User < ActiveRecord::Base
 
   has_many :places
   has_many :comments
+  after_create :send_new_user_email
+
+
+  	def send_new_user_email
+		NotificationMailer.new_user(self).deliver
+	end
+
 end

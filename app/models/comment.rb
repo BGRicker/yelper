@@ -1,9 +1,11 @@
 class Comment < ActiveRecord::Base
 	 belongs_to :user
 	 belongs_to :place
+	 after_create :send_comment_email
 #	 after_create :mark_associated_item
 #	 after_initialize :setup_identifier
 
+	validates :message, :uniqueness => true
 
 	 RATINGS = {
 	 	'one star' 		=> 1,			#user sees value on the left, right stored in database
@@ -16,6 +18,11 @@ class Comment < ActiveRecord::Base
 	def humanized_rating						#inverts table for RATINGS
 		RATINGS.invert[self.rating]				#calling .rating on self
 	end											#more verbose to put self, pulls in rating
+
+	def send_comment_email
+		NotificationMailer.comment_added(self).deliver
+	end
+
 
 #	 def mark_associated_item
 #	 	similar_places = Place.where(:name => self.place.name)
