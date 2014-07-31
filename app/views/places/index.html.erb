@@ -42,9 +42,14 @@
 			<% if place.comments.present? %>			<!-- last review -->
 			<div class="col-xs-12">
 		  	<blockquote>
-		    <% if place.comments.last.humanized_rating.present? %>
-		    <b><%= place.comments.last.humanized_rating %></b> -
-		    <% end %>
+			<% if place.comments.last.rating.present? %>
+			    <% place.comments.last.rating.to_i.times do %>
+			    *
+			    <% end %>
+			    <% place.comments.last.neg_rating.to_i.times do %>
+			    -
+			   	<% end %>
+			<% end %>
 		    <%= place.comments.last.message %>
 		    <small><%= place.comments.last.user.email %></small>
 		  	</blockquote>

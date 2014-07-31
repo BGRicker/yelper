@@ -45,12 +45,22 @@
 	color: red;
 }
 
-.cont p {
-	font-size: 12px;
-}
-
 .rating span span{
 	color:gray;
+}
+
+.indrating{
+	color: red;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.indrating span{
+	color:gray;
+}
+
+.cont p {
+	font-size: 12px;
 }
 
 #editdel{
@@ -111,11 +121,17 @@
 	<div class = "cont">
 		<% @place.comments.each do |comment| %>
 		<div class ="indcomm">
+				<div class = "indrating">
 			    	<% if comment.message.present? %>
-			    	<%= comment.rating.times do %>
+			    	<% comment.rating.to_i.times do %>
 			    	*
 			    	<% end %>
-			     	<% end %>
+			    <span>
+			    	<% comment.neg_rating.to_i.times do %>
+			    	*
+			    	<% end %>
+			    	</span>
+			    </div>
 						<p><%= comment.message %></p>
 						<p><%= comment.user.email %></p>
 						<% end %>
@@ -179,10 +195,3 @@
   </div>
   </div>
 </div>
-
-
-
-<!-- deleted humanized rating for conversion to one star / two stars vs. integer for star loop -->
-							<!-- only shows review if a rating is present -->
-			    	<!-- <% if comment.humanized_rating.present? %>	-->	<!-- makes it so you can just give star rating, no review -->
-			    	<!-- <b><%= comment.humanized_rating %></b> -->
