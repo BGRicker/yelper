@@ -111,9 +111,10 @@
 	<div class = "cont">
 		<% @place.comments.each do |comment| %>
 		<div class ="indcomm">
-			    	<% if comment.message.present? %>							<!-- only shows review if a rating is present -->
-			    	<% if comment.humanized_rating.present? %>		<!-- makes it so you can just give star rating, no review -->
-			    	<b><%= comment.humanized_rating %></b>
+			    	<% if comment.message.present? %>
+			    	<%= comment.rating.times do %>
+			    	*
+			    	<% end %>
 			     	<% end %>
 						<p><%= comment.message %></p>
 						<p><%= comment.user.email %></p>
@@ -178,3 +179,10 @@
   </div>
   </div>
 </div>
+
+
+
+<!-- deleted humanized rating for conversion to one star / two stars vs. integer for star loop -->
+							<!-- only shows review if a rating is present -->
+			    	<!-- <% if comment.humanized_rating.present? %>	-->	<!-- makes it so you can just give star rating, no review -->
+			    	<!-- <b><%= comment.humanized_rating %></b> -->
