@@ -7,6 +7,7 @@ SELECT places.id, COUNT(*), AVG(rating)  FROM places JOIN comments ON(comments.p
 
 
 
+
 SELECT places.id  FROM places JOIN comments ON(comments.place_id=  places.id) GROUP BY places.id;
  id 
 ----
@@ -75,5 +76,69 @@ SELECT rating FROM comments WHERE place_id=26;
       5
       1
 (3 rows)
+
+
+
+SELECT * FROM users WHERE email="email@email.com"                   
+
+
+SELECT * FROM users JOIN places ON (users.id = places.user_id) WHERE email="ken@thefirehoseproject.com";
+
+
+
+
+
+
+
+********
+
+- find_by
+User.find_by! id: '1'					#finds user with id of 1
+Comment.find_by! user_id: '1'			#finds comment by user id 1
+
+- find, multiple primary keys
+Place.find(14,26)						#finds places with primary_keys of 14 and 26 (ids of 14, 26)
+
+User.take!								#retrieves record with no implicit ordering
+Place.take(2)							#takes two places, no implicit ordering
+
+User.first(2)							#returns two first users, also callable as last
+
+User.find_each do |user|				#find_each retrieves batch of records (1000 by default)
+	Newsletter.weekly_deliver(user)		#yields each record to block operation
+end
+
+User.find_each(batch_size: 5000) do |user|			#(batch_size: #) sets batch size for the records retrieval
+
+" " (start: 2000, batch_size: 5000) do |user|		#defines start point of insertions by primary key (default asc)
+													#starts, then continues batch size, e.g. 2000 - 7000
+
+
+# Give add_invoices an array of 1000 invoices at a time			#
+Invoice.find_in_batches(include: :invoice_lines) do |invoices|	#
+  export.add_invoices(invoices)									# accepts bath_size and start options
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -15,6 +15,16 @@
 .rating span span{
 	color:gray;
 }
+/*
+.indrating{
+	color: red;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.indrating span{
+	color:gray;
+} */
 </style>
 
 
@@ -42,14 +52,18 @@
 			<% if place.comments.present? %>			<!-- last review -->
 			<div class="col-xs-12">
 		  	<blockquote>
+		  		<div class= "indrating">
+		  		<span>
 			<% if place.comments.last.rating.present? %>
 			    <% place.comments.last.rating.to_i.times do %>
 			    *
-			    <% end %>
+			    <% end %><span>
 			    <% place.comments.last.neg_rating.to_i.times do %>
-			    -
+			    *
 			   	<% end %>
+			</span>
 			<% end %>
+			<span>
 		    <%= place.comments.last.message %>
 		    <small><%= place.comments.last.user.email %></small>
 		  	</blockquote>

@@ -11,6 +11,8 @@ class NotificationMailer < ActionMailer::Base
 
 	def sign_up(user)
 		@email_add = user.email
+		@created = user.created_at
+		@ip = user.current_sign_in_ip
 		mail(to: user.email,
 			subject: "Welcome to the site!")
 	end
