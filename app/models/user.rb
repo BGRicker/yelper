@@ -10,7 +10,14 @@ class User < ActiveRecord::Base
 
 
   	def sign_up_email
-		NotificationMailer.new_user(self).deliver
-	end
+		    NotificationMailer.new_user(self).deliver
+	  end
+
+    def tough_customer
+        Comment.where(:user_id => self.id).average(:rating).to_i
+    end
+    def neg_tough_customer
+    (tough_customer-5).abs
+    end
 
 end
