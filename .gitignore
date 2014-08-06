@@ -18,8 +18,8 @@
 # Ignore application configuration
 /config/application.yml
 
-#ignore Q&A Notes
-/README.md
+#ignore notes
+/Notes.md
 
 #ignore SQL Notes
 /SQL Notes.md

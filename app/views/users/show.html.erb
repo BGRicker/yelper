@@ -1,11 +1,16 @@
+<div class="post-box">
 <h1><%= @user.email %></h1>
 <h3>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
 <h4><%= @user.comments.count %> total comments</h4>
 <h4><%= @user.comments.where(:rating => '5_stars').count%> total 5 star reviews</h4>
-<h4>Average rating given: <% @user.tough_customer.to_i.times do %>
+<h4>Average rating given:</h4>
+<div class = "rating">
+<% @user.tough_customer.to_i.times do %>
 *
-<% end %>
+<% end %><span><span>
 <% @user.neg_tough_customer.to_i.times do %>
 *
 <% end %>
-</h4>
+</span></span>
+</div>
+</div>

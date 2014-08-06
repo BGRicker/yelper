@@ -136,6 +136,19 @@ body{
   height: 300px;      /*needs to be put in because of bootstrap*/
 }
 
+.rating{
+  position: relative;
+  font-size: 20px;
+  top: 14%;
+  font-weight: bold;
+  font-size: 30px;
+  color: red;
+}
+
+.rating span span{
+  color:gray;
+}
+
 /* Smartphones (portrait and landscape)
 @media only screen 
 and (min-device-width : 320px) 

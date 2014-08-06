@@ -1,18 +1,28 @@
 == README
 
-Q&A (not pressing)
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-- admin rights to edit all places / comments
-- is @place = Place.find(params[:place_id]) standard for locating the id of the model?
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
 
 
-- DNS of VARIABLE.nomster.com, like www.nomster.heroku.com. Auto populate address prefix with variable
-- creating alternate versions of a project on git (branches?)
-- show all places on a map, select different descriptions to cut down number of places shown
-
-*****
-1 on 1
-
-- sorting reviews by most reviews, highest average review, to display top 5 on home page
-- Count number of reviews per place, sort places as "top places' by number of reviews"
-- after creating option to review with stars and no comment, I want the place.comments.last to show the last review with a full description
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
