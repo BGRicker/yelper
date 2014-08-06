@@ -12,7 +12,7 @@ Q&A (not pressing)
 *****
 1 on 1
 
-- sorting reviews by most reviews, highest average review, to display top 5 on home page
 - using rails/db console for readying queries for rails
+- sorting reviews by most reviews, highest average review, to display top 5 on home page
 - Count number of reviews per place, sort places as "top places' by number of reviews"
 - after creating option to review with stars and no comment, I want the place.comments.last to show the last review with a full description

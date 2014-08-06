@@ -6,6 +6,8 @@ Nomster::Application.routes.draw do
     resources :comments, :only => :create     # nest comment route in under place routes for create
   end
 
+  resources :users, :only => :show
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
