@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
         Comment.where(:user_id => self.id).average(:rating).to_i
     end
     def neg_tough_customer
-    (tough_customer-5).abs
+        (tough_customer-5).abs
     end
 
 end

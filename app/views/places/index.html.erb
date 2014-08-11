@@ -1,5 +1,5 @@
 <style type="text/css">
-.rating{
+.irating{
 	position: relative;
 	font-size: 20px;
 	top: 14%;
@@ -12,19 +12,18 @@
 	font-size: 12px;
 }
 
-.rating span span{
+.irating span span{
 	color:gray;
-}
-/*
-.indrating{
-	color: red;
-	font-size: 25px;
-	font-weight: bold;
 }
 
 .indrating span{
-	color:gray;
-} */
+	color: red;
+}
+
+.indrating span span{
+	color: gray;
+}
+
 </style>
 
 
@@ -37,7 +36,7 @@
 		<% end %>
 		</div>
 		<h1><%= link_to place.name, place_path(place) %></h1>	<!--replaces place.name -->
-			<div class = "rating">
+			<div class = "irating">
 			<span><% place.average_rating.to_i.times do %>
 			*
 			<% end %><span>
@@ -49,23 +48,23 @@
 		<i><%= place.address %></i><br><br>
 		<p><%= place.description %></p>
 
-			<% if place.comments.present? %>			<!-- last review -->
+			<% if place.comments.with_message.present? %>			<!-- last review -->
 			<div class="col-xs-12">
 		  	<blockquote>
 		  		<div class= "indrating">
 		  		<span>
-			<% if place.comments.last.rating.present? %>
-			    <% place.comments.last.rating.to_i.times do %>
+			<% if place.comments.with_message.last.rating.present? %>
+			    <% place.comments.with_message.last.rating.to_i.times do %>
 			    *
 			    <% end %><span>
-			    <% place.comments.last.neg_rating.to_i.times do %>
+			    <% place.comments.with_message.last.neg_rating.to_i.times do %>
 			    *
 			   	<% end %>
 			</span>
 			<% end %>
 			<span>
-		    <%= place.comments.last.message %>
-		    <small><%= place.comments.last.user.email %></small>
+		    <%= place.comments.with_message.last.message %>
+		    <small><%= place.comments.with_message.last.user.email %></small>
 		  	</blockquote>
 </div>
 <% end %>

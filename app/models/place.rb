@@ -8,6 +8,8 @@ class Place < ActiveRecord::Base
 	validates :name, length: { in: 5..25 }
 	validates :description, length: { in: 20..200 }
 
+	scope :w_message, -> { where("message is not null and message != ''") }
+
 
 	def average_rating
 		Comment.where(:place_id => self.id).average(:rating).to_i

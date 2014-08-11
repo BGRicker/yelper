@@ -14,13 +14,9 @@
   padding:15px;
 }
 
-.post-box h1 a{
-
-}
-
 .post-box h1{
   font-size: 2.5em;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .post-box p{
@@ -33,12 +29,6 @@
   font-size: 1em;
   font-family: 'Raleway', sans-serif;
 }
-
-/*.pull-right{
-  top:5px;
-  font-size: 1.25em;
-  font-family: 'Raleway', sans-serif;
-}*/
 
 .navbar.navbar-inverse {
   background:url('/assets/felt.png');
@@ -149,14 +139,96 @@ body{
   color:gray;
 }
 
-/* Smartphones (portrait and landscape)
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-  .post-box{
-background-color: black;}
+.rating p{
+  color: black;
 }
-*/
+
+.placeinfo{
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff; 
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-bottom:15px;
+  padding:15px;
+  position:absolute;
+  z-index:1;
+  left: 20px;
+  width: 40%;
+  height: 525px;
+  opacity: .9;
+}
+
+.indcomm{
+  /*border: 1px solid gray;*/
+  padding: 2, 5, 0, 5px;
+}
+
+.indcomm b{
+  font-size: 12px;
+}
+
+.indcomm p{
+  font-size: 15px;
+}
+
+.cont {
+  height: 50%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.rating{
+  font-size: 20px;
+  position: static;
+  top: 14%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  color: red;
+  z-index: 1;
+}
+
+.rating span span{
+  color:gray;
+}
+
+.indrating{
+  color: red;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.indrating span{
+  color:gray;
+}
+
+.cont p {
+  font-size: 12px;
+}
+
+#editdel{
+  position: absolute;
+  bottom: 2%;
+  right: 5%;
+  text-align: right;
+}
+
+.commbutton{
+  position: absolute;
+  bottom: 2%;
+  left: 5%;
+}
+
+#map-canvas{
+  position:absolute;
+  height:92%;
+  width:100%;
+  top: 50px;
+  left: 0px;
+  z-index:-1;
+}
 
 .clear{
   clear: both;

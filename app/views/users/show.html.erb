@@ -1,19 +1,122 @@
-<div class="post-box">
-	<div class="col-xs-8">
-		<h1><%= @user.email %></h1>
-		<h3>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
-		<h4><%= @user.comments.count %> total comments</h4>
-		<h4><%= @user.comments.where(:rating => '5_stars').count%> total 5 star reviews</h4><br>
-		<h4>Average rating given:</h4>
-		<div class = "rating">
-			<% @user.tough_customer.to_i.times do %>
-			*
-			<% end %><span><span>
-			<% @user.neg_tough_customer.to_i.times do %>
-			*
-			<% end %>
-			</span></span>
+<style type="text/css">
+
+.bio h1 {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+
+}
+
+.back{
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff; 
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top:10px;
+  margin-bottom:15px;
+  padding:15px;
+}
+
+.place-box{
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff; 
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top:10px;
+  margin-bottom:15px;
+  padding:15px;
+}
+
+.rating2 span span {
+	color: gray;
+}
+
+.rating2 {
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 1;
+  color: red;
+  text-align: left;
+  font-size: 18px;
+}
+
+</style>
+<div class="row">
+	<div class="place-box col-xs-6 col-xs-offset-1">
+		<div class = "bio">
+			<h2><%= @user.email.capitalize %></h2>													<!-- email is 			h1 -->
+			<h3>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>					<!-- membersince is 	h3 -->
+			<h4><%= @user.comments.count %> total comments</h4>										<!-- comment count is 	h4 -->
+			<h4><%= @user.comments.where(:rating => '5_stars').count%> total 5 star reviews</h4><br><!-- #5 stars is 		h4 -->
+			<h4>Average rating given:</h4>															<!-- average rating is	h4 -->
+			<div class = "rating2">
+				<span>
+				<% @user.tough_customer.to_i.times do %>											<!-- math avg raitng is .rating p -->
+				<i class="glyphicon glyphicon-plus-sign"></i>										<!-- pos star is 		.rating p -->
+				<% end %><span><span>
+				<% @user.neg_tough_customer.to_i.times do %>										<!-- neg star is 	  .rating span span -->
+				<i class="glyphicon glyphicon-plus-sign"></i>
+				<% end %>
+				</span></span>
 		</div>
 	</div>
+</div>
+	<div class="post-box col-xs-3 col-xs-offset-1">
+		<br><br><br><br><br><br><br><br><br>							<!-- user pictures will go here -->
+	</div>
+
+<div class ="pic">		<!-- user picture -->
+
+</div>
+
+
 	  <div class="clear"></div>
+
+<div class="row">
+	<br><br>
+	<div class="place-box col-xs-5 col-xs-offset-1">
+		<h1 class="text-center"><br>My Comments</h1>
+		<br><br>
+
+		<% @user.comments.each do |comment| %>
+		<div class="place-box col-xs-15 col-xs-offset-1">
+			<div class="rating2">
+				<h3>
+				<%= link_to comment.place.name, place_path(comment.place) %>
+			    	<h3 class="text-right">
+			    	<% if comment.message.present? %>
+						<% comment.rating.to_i.times do %>
+						<i class="glyphicon glyphicon-plus-sign"></i>
+						<% end %>
+						<span><span>
+						<% comment.neg_rating.to_i.times do %>
+						<i class="glyphicon glyphicon-plus-sign"></i>
+					<% end %>
+						</span></span>
+						<p><%= comment.message %></p>
+					<% end %>
+					</div>
+				</div>
+					<% end %>
+				</div>	<!-- removed two /div -->
+
+			<div class="place-box col-xs-5 col-xs-offset-0">
+				<h1 class="text-center"><br>My Places</h1>
+				<br><br>
+
+				<% @user.places.each do |place| %>
+				<div class="place-box col-xs-15 col-xs-offset-1">
+						<h3>
+						<p><%= link_to place.name, place_path(comment.place) %></p>
+						<small><i><%= place.address %></i></small>
+						<p><%= place.description %></p>
+						<p><%= place.created_at %></p>
+			</div>
+			<% end %>
+	</div>
 </div>

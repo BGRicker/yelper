@@ -6,6 +6,7 @@ class Comment < ActiveRecord::Base
 #	 after_initialize :setup_identifier
 
 	validates :message, :uniqueness => true
+	scope :with_message, -> { where("message is not null and message != ''") }
 
 	 RATINGS = {
 	 	'one star' 		=> 1,			#user sees value on the left, right stored in database

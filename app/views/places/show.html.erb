@@ -1,89 +1,5 @@
 <style type="text/css">
-.placeinfo{
-  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  box-shadow: 1px 1px 2px 0 #d0d0d0;
-  background: #fff; 
-  border: 1px solid #ccc;
-  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
-  margin-bottom:15px;
-  padding:15px;
-  position:absolute;
-  z-index:1;
-  left: 20px;
-  width: 40%;
-  height: 525px;
-  opacity: .9;
-}
 
-.indcomm{
-	/*border: 1px solid gray;*/
-	padding: 2, 5, 0, 5px;
-}
-
-.indcomm b{
-	font-size: 12px;
-}
-
-.indcomm p{
-	font-size: 15px;
-}
-
-.cont {
-	height: 50%;
-	width: 100%;
-	overflow: scroll;
-}
-
-.rating{
-	font-size: 20px;
-	position: static;
-	top: 14%;
-	text-align: center;
-	font-weight: bold;
-	font-size: 30px;
-	color: red;
-}
-
-.rating span span{
-	color:gray;
-}
-
-.indrating{
-	color: red;
-	font-size: 15px;
-	font-weight: bold;
-}
-
-.indrating span{
-	color:gray;
-}
-
-.cont p {
-	font-size: 12px;
-}
-
-#editdel{
-	position: absolute;
-	bottom: 2%;
-	right: 5%;
-	text-align: right;
-}
-
-.commbutton{
-	position: absolute;
-	bottom: 2%;
-	left: 5%;
-}
-
-#map-canvas{
-	position:absolute;
-	height:92%;
-	width:100%;
-	top: 50px;
-	left: 0px;
-	z-index:-1;
-}
 
 </style>
 	
@@ -96,7 +12,7 @@
 <i class="glyphicon glyphicon-thumbs-up"></i>
 <% end %><span>
 <% @place.neg_rating.to_i.times do %>
-<i class="glyphicon glyphicon-thumbs-down"></i>
+<i class="glyphicon glyphicon-thumbs-up"></i>
 <% end %>
 </span>
 <br>
