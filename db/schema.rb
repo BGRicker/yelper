@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140711231212) do
 
   add_index "comments", ["place_id"], name: "index_comments_on_place_id", using: :btree
   add_index "comments", ["user_id", "place_id"], name: "index_comments_on_user_id_and_place_id", using: :btree
-
+  
   create_table "places", force: true do |t|
     t.string   "name"
     t.text     "description"

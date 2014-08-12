@@ -53,7 +53,7 @@
 		  	<blockquote>
 		  		<div class= "indrating">
 		  		<span>
-			<% if place.comments.with_message.last.rating.present? %>
+				<% if place.comments.with_message.last.rating.present? %>
 			    <% place.comments.with_message.last.rating.to_i.times do %>
 			    *
 			    <% end %><span>
