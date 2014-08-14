@@ -25,9 +25,14 @@
 }
 
 </style>
-
-
 <br>
+<div class="post-box col-xs-10 col-xs-offset-1">
+	<h3>Top places by average rating!</h3>
+	<% @places.each do |place| %>
+		<p> <%= place.name %> - 
+		<%= place.average_rating %><br></p>
+	<% end %>
+</div>
 
 <% @places.each do |place| %>
 	<div class="post-box col-xs-10 col-xs-offset-1">
@@ -55,10 +60,10 @@
 		  		<span>
 				<% if place.comments.with_message.last.rating.present? %>
 			    <% place.comments.with_message.last.rating.to_i.times do %>
-			    *
+			    <i class="glyphicon glyphicon-plus-sign"></i>
 			    <% end %><span>
 			    <% place.comments.with_message.last.neg_rating.to_i.times do %>
-			    *
+			    <i class="glyphicon glyphicon-minus-sign"></i>
 			   	<% end %>
 			</span>
 			<% end %>

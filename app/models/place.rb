@@ -17,4 +17,9 @@ class Place < ActiveRecord::Base
 		(average_rating-5).ceil.abs
 	end
 
+#	def top_places
+#	    t_places=self.places.sort do |x,y|
+#       y.places.average_rating <=> x.places.average_rating
+#  		end
+#	end
 end
