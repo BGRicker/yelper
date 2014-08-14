@@ -38,10 +38,10 @@
 		<h1><%= link_to place.name, place_path(place) %></h1>	<!--replaces place.name -->
 			<div class = "irating">
 			<span><% place.average_rating.to_i.times do %>
-			*
+			<i class="glyphicon glyphicon-plus-sign"></i>
 			<% end %><span>
 			<% place.neg_rating.to_i.times do %>
-			*
+			<i class="glyphicon glyphicon-minus-sign"></i>
 			<% end %>
 			</span>
 			</div>
