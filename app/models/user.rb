@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :places
   has_many :comments
   after_create :sign_up_email
+  scope :w_message, -> { where("message is not null and message != ''") }
 
 
   	def sign_up_email
@@ -18,6 +19,12 @@ class User < ActiveRecord::Base
     end
     def neg_tough_customer
         (tough_customer-5).abs
+    end
+
+    def sorted_places
+        my_places=self.places.sort do |x,y|
+        y.comments.count <=> x.comments.count
+        end
     end
 
 end

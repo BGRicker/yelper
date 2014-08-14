@@ -85,8 +85,21 @@ SELECT * FROM users WHERE email="email@email.com"
 SELECT * FROM users JOIN places ON (users.id = places.user_id) WHERE email="ken@thefirehoseproject.com";
 
 
+SELECT count(comments.id), places.id, comments.id is not null FROM places JOIN users ON (users.id  = places.user_id) LEFT OUTER JOIN comments ON (comments.place_id = places.id) group BY places.id,comments.id is not null;
 
-
+ count | id | ?column? 
+-------+----+----------
+     7 | 18 | t
+     6 | 27 | t
+     0 | 24 | f
+     2 | 20 | t
+     0 | 21 | f
+     0 | 22 | f
+     2 | 23 | t
+     7 | 26 | t
+     0 | 14 | f
+     1 | 19 | t
+(10 rows)
 
 
 
@@ -119,13 +132,15 @@ Invoice.find_in_batches(include: :invoice_lines) do |invoices|	#
   export.add_invoices(invoices)									# accepts bath_size and start options
 end
 
+User.find_by email: 'bgricker@gmail.com' 						#find User by an email that is bgricker@gmail.com
 
+User.find([1,2])												#finds two records
 
+User.take(2)													#returns 2 Users, no explicit ordering (what order are these pulled in?)
 
+Place.where("user_id = '1'")									#returns user_id 1's Places
 
-
-
-
+Comment.where("user_id = '1' AND rating = '5'")					#user_id's 5 star ratings
 
 
 

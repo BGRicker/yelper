@@ -90,17 +90,15 @@
 			<div class="place-box col-xs-5 col-xs-offset-0">
 				<h1 class="text-center"><br>My Places</h1>
 				<br><br>
-
-				<% @user.places.each do |place| %>
+				<% @user.sorted_places.each do |place| %>
 				<div class="place-box col-xs-15 col-xs-offset-.5">
-						<h3>
-						<h3><%= link_to place.name, place_path(place) %></h3>
-						<small><i><%= place.address %></i></small><br>
-						<p><%= place.description %></p>
-						<p><%= place.created_at.strftime("%B %d, %Y") %></p>
-						<p><%= place.comments.count %> comments on <%=place.name %>.</p>
+							<h3><%= link_to place.name, place_path(place) %></h3>
+							<small><i><%= place.address %></i></small><br>
+							<p><%= place.description %></p>
+							<p><%= place.created_at.strftime("%B %d, %Y") %></p>
+							<p><%= place.comments.count %> comments on <%=place.name %>.</p>
 			</div>
-			<% end %>
+							<% end %>
 	</div>
 </div>
 

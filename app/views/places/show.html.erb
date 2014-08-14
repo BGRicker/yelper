@@ -9,10 +9,10 @@
 <i><small><%= @place.address %></small></i><br></center>
 <div class = "rating">
 <span><% @place.average_rating.to_i.times do %>
-<i class="glyphicon glyphicon-thumbs-up"></i>
+<i class="glyphicon glyphicon-plus-sign"></i>
 <% end %><span>
 <% @place.neg_rating.to_i.times do %>
-<i class="glyphicon glyphicon-thumbs-up"></i>
+<i class="glyphicon glyphicon-minus-sign"></i>
 <% end %>
 </span>
 <br>
