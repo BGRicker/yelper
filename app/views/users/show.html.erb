@@ -22,11 +22,16 @@
 
 .rating2 {
   font-size: 18px;
-  font-weight: bold;
   z-index: 1;
   color: red;
   text-align: left;
   font-size: 18px;
+}
+
+.rating2 p {
+  color: black;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 </style>
@@ -95,9 +100,11 @@
 				<div class="place-box col-xs-15 col-xs-offset-.5">
 							<h3><%= link_to place.name, place_path(place) %></h3>
 							<small><i><%= place.address %></i></small><br>
+							<div class="rating2">
 							<p><%= place.description %></p>
 							<p><%= place.created_at.strftime("%B %d, %Y") %></p>
 							<p><%= place.comments.count %> comments on <%=place.name %>.</p>
+							</div>
 			</div>
 							<% end %>
 	</div>

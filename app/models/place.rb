@@ -10,16 +10,16 @@ class Place < ActiveRecord::Base
 
 
 	def average_rating
-		Comment.where(:place_id => self.id).average(:rating).to_i
+		Comment.where(:place_id => self.id).average(:rating).to_f
 	end
 
 	def neg_rating
 		(average_rating-5).ceil.abs
 	end
 
-#	def top_places
-#	    t_places=self.places.sort do |x,y|
-#       y.places.average_rating <=> x.places.average_rating
-#  		end
-#	end
+	def sorter
+		my_places=self.places.sort do |x,y|
+		y.place.average_rating <=> x.place.average_rating
+  		end
+	end
 end

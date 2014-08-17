@@ -4,6 +4,7 @@ class PlacesController < ApplicationController
 	def index
 		@places = Place.all 		#creates variable of all Places
 		@places = Place.paginate(:page => params[:page], :per_page => 5)
+		@users = User.all
 	end
 
 	def new
